@@ -4,11 +4,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
-$(call inherit-product-if-exists, vendor/kingzone/k1_turbo/k1_turbo-vendor.mk)
+$(call inherit-product-if-exists, vendor/Micromax/A311/A311-vendor.mk)
 
-DEVICE_PACKAGE_OVERLAYS += device/kingzone/k1_turbo/overlay
+DEVICE_PACKAGE_OVERLAYS += device/Micromax/A311/overlay
 
-LOCAL_PATH := device/kingzone/k1_turbo
+LOCAL_PATH := device/Micromax/A311
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
 else
@@ -103,21 +103,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
 
-# NFC
-PRODUCT_PACKAGES += \
-    com.android.nfc_extras \
-    nfcstackp \
-    libmtknfc_dynamic_load_jni \
-    libnfc_mt6605_jni \
-    Nfc \
-    Tag
-
-PRODUCT_COPY_FILES += \
-    packages/apps/Nfc/migrate_nfc.txt:system/etc/updatecmds/migrate_nfc.txt \
-    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
-    frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
-    frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml
-
 # Torch
 PRODUCT_PACKAGES += \
     Torch
@@ -133,10 +118,6 @@ PRODUCT_PACKAGES += \
     libfmcust \
     libmtkplayer
 
-# Smart Cover
-PRODUCT_PACKAGES += \
-    SmartCover
-
 # Camera
 PRODUCT_PACKAGES += \
     Snap
@@ -148,10 +129,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 $(call inherit-product, build/target/product/full.mk)
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-PRODUCT_NAME := full_k1_turbo
-PRODUCT_DEVICE := k1_turbo
+PRODUCT_NAME := full_A311
+PRODUCT_DEVICE :=A311
 
-TARGET_SCREEN_HEIGHT := 1920
-TARGET_SCREEN_WIDTH := 1080
+TARGET_SCREEN_HEIGHT := 1280
+TARGET_SCREEN_WIDTH := 720
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
